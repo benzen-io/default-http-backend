@@ -11,6 +11,7 @@ before_script:
 build-master:
   stage: build
   script:
+    - export DOCKER_HOST="tcp://localhost:2375"
     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
     # - docker push "$CI_REGISTRY_IMAGE"
   only:
