@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
         - name: default-http-backend
-          image: gcr.io/benzen-179605/default-http-backend:latest
+          image: registry.benzen.io/services/default-http-backend
           ports:
             - containerPort: 8000
               name: http
-          resources:
-            requests:
-              cpu: 10m
+          # resources:
+          #   requests:
+          #     cpu: 10m
 ---
 apiVersion: v1
 kind: Service
