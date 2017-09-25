@@ -23,4 +23,4 @@ spec:
               name: http
           env:
           - name: DEPLOYED_AT
-            value: 'DEPLOYED_AT'
+            value: "DEPLOYED_AT"
