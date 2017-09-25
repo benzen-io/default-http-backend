@@ -10,7 +10,7 @@ build:
   image: docker
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker pull $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+    - docker pull $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME || docker pull $CI_REGISTRY_IMAGE:$CI_BUILD_REF
     - docker build --cache-from $CI_REGISTRY_IMAGE:CI_BUILD_REF_NAME -t $CI_REGISTRY_IMAGE:CI_BUILD_REF .
     - docker push $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
   only:
