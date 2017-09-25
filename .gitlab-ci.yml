@@ -2,27 +2,23 @@ services:
   - docker:dind
 
 stages:
-  # - build
+  - build
   - deploy
 
-# build:
-#   stage: build
-#   image: docker:latest
-#   script:
-#     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-#     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
-#     - docker push "$CI_REGISTRY_IMAGE"
-#     - kubectl apply -f .kube-deploy.yaml
-#   only:
-#     - master
+build:
+  stage: build
+  image: docker:latest
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - master
 
 deploy:
   image: google/cloud-sdk
   stage: deploy
   script:
-    # - echo "$GOOGLE_KEY" > key.json
-    # - gcloud auth activate-service-account --key-file key.json
-    - echo $PWD
     - kubectl apply -f .k8s-deploy.yml
   only:
     - master

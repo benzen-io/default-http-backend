@@ -3,5 +3,5 @@ RUN mkdir -p /var/default-http-backend
 WORKDIR /var/var/default-http-backend
 COPY . /var/var/default-http-backend
 RUN npm install
-EXPOSE 8000
+EXPOSE 8080
 CMD npm start
