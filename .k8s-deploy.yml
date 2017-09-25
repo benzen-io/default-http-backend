@@ -21,3 +21,6 @@ spec:
           ports:
             - containerPort: 8080
               name: http
+          env:
+          - name: DEPLOYED_AT
+            value: 'DEPLOYED_AT'
