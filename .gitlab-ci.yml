@@ -12,6 +12,8 @@ build:
   stage: build
   image: docker:dind
   script: |
+    echo DOCKER_DRIVER
+    echo DOCKER_HOST
     docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     docker pull $CI_REGISTRY_IMAGE:lastest || true
     docker build --cache-from $CI_REGISTRY_IMAGE:lastest -t $CI_REGISTRY_IMAGE .
