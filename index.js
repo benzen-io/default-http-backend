@@ -6,7 +6,7 @@ app.get('/healthz', (req,res) => {
 });
 
 app.get('/', (req,res) => {
-	res.send('Hello ' + req.headers.host)
+	res.send('Hello ' + req.headers.host + '!')
 });
 
 app.listen(8080, () => {
