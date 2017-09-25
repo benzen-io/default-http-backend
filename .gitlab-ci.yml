@@ -5,6 +5,9 @@ stages:
   - build
   - deploy
 
+variables:
+  DOCKER_DRIVER: overlay
+
 build:
   stage: build
   image: docker:dind
