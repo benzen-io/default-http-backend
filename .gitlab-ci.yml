@@ -13,10 +13,11 @@ build:
     pwd
     ls
     docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    docker pull $CI_REGISTRY_IMAGE:lastest || true
-    docker build --cache-from $CI_REGISTRY_IMAGE:lastest -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    docker pull $CI_REGISTRY_IMAGE:latest || true
+    docker build --cache-from $CI_REGISTRY_IMAGE:latest -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
     docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
     docker push $CI_REGISTRY_IMAGE:latest
+    ls cache
   only:
     - master
 

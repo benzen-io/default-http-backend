@@ -16,7 +16,7 @@ spec:
         - name: gitlab-registry-secret
       containers:
         - name: default-http-backend
-          image: registry.benzen.io/services/default-http-backend
+          image: registry.benzen.io/services/default-http-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
