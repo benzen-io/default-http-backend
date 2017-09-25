@@ -22,6 +22,7 @@ deploy:
   script:
     # - echo "$GOOGLE_KEY" > key.json
     # - gcloud auth activate-service-account --key-file key.json
+    - echo $PWD
     - kubectl apply -f .k8s-deploy.yml
   only:
     - master
