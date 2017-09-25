@@ -17,7 +17,7 @@ build:
     docker load -i $CI_PROJECT_DIR/cache/latest.tar || docker pull $CI_REGISTRY_IMAGE:lastest || true
     docker build --cache-from $CI_REGISTRY_IMAGE:lastest -t $CI_REGISTRY_IMAGE:lastest .
     docker push $CI_REGISTRY_IMAGE:lastest
-    docker save -o $CI_PROJECT_DIR/cache/latest.tar $CONTAINER_RELEASE_IMAGE
+    docker save -o $CI_PROJECT_DIR/cache/latest.tar $CI_REGISTRY_IMAGE:lastest
   only:
     - master
 
