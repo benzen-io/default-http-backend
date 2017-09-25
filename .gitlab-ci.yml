@@ -5,9 +5,6 @@ stages:
   - build
   - deploy
 
-variables:
-  DOCKER_DRIVER: overlay
-
 build:
   stage: build
   image: docker:dind
@@ -19,8 +16,8 @@ build:
     - master
 
 deploy:
-  stage: deploy
   image: google/cloud-sdk
+  stage: deploy
   script: |
     kubectl apply -f .k8s-deploy.yml
   only:
