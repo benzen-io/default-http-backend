@@ -14,9 +14,10 @@ build:
   script: |
     mkdir -p $CI_PROJECT_DIR/cache/
     docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    docker load -i $CI_PROJECT_DIR/images/latest.tar || docker pull $CI_REGISTRY_IMAGE:lastest || true
+    docker load -i $CI_PROJECT_DIR/cache/latest.tar || docker pull $CI_REGISTRY_IMAGE:lastest || true
     docker build --cache-from $CI_REGISTRY_IMAGE:lastest -t $CI_REGISTRY_IMAGE:lastest .
     docker push $CI_REGISTRY_IMAGE:lastest
+    docker save -o $CI_PROJECT_DIR/cache/latest.tar $CONTAINER_RELEASE_IMAGE
   only:
     - master
 
