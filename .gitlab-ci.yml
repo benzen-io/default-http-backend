@@ -11,17 +11,17 @@ variables:
 build:
   stage: build
   image: docker:dind
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE .
-    - docker push $CI_REGISTRY_IMAGE
+  script: |
+    docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    docker build -t $CI_REGISTRY_IMAGE .
+    docker push $CI_REGISTRY_IMAGE
   only:
     - master
 
 deploy:
-  image: google/cloud-sdk
   stage: deploy
-  script:
-    - kubectl apply -f .k8s-deploy.yml
+  image: google/cloud-sdk
+  script: |
+    kubectl apply -f .k8s-deploy.yml
   only:
     - master
