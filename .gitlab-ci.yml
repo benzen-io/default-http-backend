@@ -12,14 +12,14 @@ stages:
   # - build
   - deploy
 
-build:
-  stage: build
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
-    - docker push "$CI_REGISTRY_IMAGE"
-    - kubectl apply -f .kube-deploy.yaml
-  only:
-    - master
+# build:
+#   stage: build
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+#     - docker push "$CI_REGISTRY_IMAGE"
+#     - kubectl apply -f .kube-deploy.yaml
+#   only:
+#     - master
 
 deploy:
   image: google/cloud-sdk
