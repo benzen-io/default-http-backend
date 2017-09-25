@@ -1,8 +1,7 @@
 FROM node:boron
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY . /usr/src/app
+RUN mkdir -p /var/default-http-backend
+WORKDIR /var/var/default-http-backend
+COPY . /var/var/default-http-backend
 RUN npm install
 EXPOSE 8000
 CMD npm start
-
