@@ -17,10 +17,6 @@ spec:
       containers:
         - name: default-http-backend
           image: registry.benzen.io/services/default-http-backend
-          imagePullPolicy: Always
           ports:
             - containerPort: 8080
               name: http
-          # resources:
-          #   requests:
-          #     cpu: 10m
