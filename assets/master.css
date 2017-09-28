@@ -1,0 +1,86 @@
+html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: arial, sans-serif;
+  animation: background-anim 1.5s ease;
+  animation-fill-mode: forwards;
+  background-color: #108EE9;
+}
+
+@keyframes background-anim {
+    0%
+    {
+      background-color: white;
+    }
+    100%
+    {
+      background-color: #108EE9;
+    }
+}
+
+.logo {
+    height: 80px;
+    margin: 3em 0;
+    text-align: center;
+    animation: logo-anim 1s ease;
+}
+
+@keyframes logo-anim {
+  0% {
+    opacity:0;
+    transform: rotateY(30deg) translateX(80px);
+  }
+  100% {
+    opacity:1;
+    transform: rotateY(0deg);
+  }
+}
+.message {
+  color: #f46e65;
+  padding: 0.5em 2em;
+  border:1px solid white;
+  border-radius: 0.5em;
+  background: #D2EAFB;
+  animation: message-anim 1.5s ease;
+  line-height: 1.5em;
+}
+.message h1 {
+  color: #d73435;
+}
+
+.sitemap {
+  color: white;
+  margin: 2em 0;
+}
+.sitemap a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 1.5em 0;
+  transition: transform 0.3s, font-size 0.1s;
+}
+.sitemap a:hover {
+  transform: translateX(6px);
+  font-size: 1.2em;
+}
+.sitemap a b {
+  display: block;
+  margin-bottom: 0.3em;
+}
+.sitemap a span {
+  display: block;
+  font-weight: normal;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.address {
+  color: white;
+  font-weight: normal;
+  font-size: 0.7em;
+  opacity: 0.6;
+}

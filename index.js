@@ -1,19 +1,31 @@
 const express = require('express');
 const app = express();
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+// heath check
 app.get('/healthz', (req,res) => {
 	res.status(200).end()
 });
 
+// redirections
 const redirects = require('./redirects.json');
-
 app.use((req,res,next) => {
-	let redirect = redirects[req.headers.host];
+	let redirect = redirects[req.hostname];
 	if (redirect) res.redirect(redirect);
 	else next();
 });
 
-app.use(express.static(__dirname + '/assets', ''));
+// statics
+app.use('/assets', express.static(__dirname + '/assets'));
+
+// main
+app.use((req,res) => {
+	res.render('index', {
+		errorMessageVisible: req.hostname != 'benzen.io'
+	})
+});
 
 app.listen(8080, () => {
 	console.log('Run on 8080!')
