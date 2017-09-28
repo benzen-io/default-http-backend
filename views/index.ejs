@@ -8,14 +8,11 @@
 <link rel="stylesheet" href="/assets/master.css">
 </head>
 <body>
-<div class="logo"><img src="/assets/logo-w.png" alt="Benzen"></div>
-<% if (errorMessageVisible) { %>
+<div class="logo"><a href="http://benzen.io"><img src="/assets/logo-w.png" alt="Benzen"></a></div>
+<% if (hostname != 'benzen.io') { %>
 <div class="message">
   <h1>Sorry!</h1>
-  <p>
-  Service is currently not available or missing.<br>
-  Find something another of Benzen?
-  </p>
+  <p>Requested service is currently not available or missing. Finding something another from Benzen?</p>
 </div>
 <% } %>
 <div class="sitemap">
@@ -32,6 +29,6 @@
     <span>Just a Company Journal</span>
   </a>
 </div>
-<p class="address">Contact us via support&commat;benzen.io</p>
+<p class="address">Contact us via <span class="email"></span></p>
 </body>
 </html>

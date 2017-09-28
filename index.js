@@ -23,7 +23,7 @@ app.use('/assets', express.static(__dirname + '/assets'));
 // main
 app.use((req,res) => {
 	res.render('index', {
-		errorMessageVisible: req.hostname != 'benzen.io'
+		hostname: req.hostname
 	})
 });
 

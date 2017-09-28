@@ -1,6 +1,11 @@
 html {
   margin: 0;
   padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,11 +27,25 @@ html {
     }
 }
 
+body > div {
+  width: 100%;
+  max-width: 640px;
+  box-sizing: border-box;
+}
+
 .logo {
-    height: 80px;
-    margin: 3em 0;
+    margin-top: 3em;
     text-align: center;
     animation: logo-anim 1s ease;
+}
+.logo img {
+  max-width: 100%;
+  image-rendering: optimizeSpeed;             /*                     */
+  image-rendering: -moz-crisp-edges;          /* Firefox             */
+  image-rendering: -o-crisp-edges;            /* Opera               */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and Safari) */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed       */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                */
 }
 
 @keyframes logo-anim {
@@ -40,6 +59,7 @@ html {
   }
 }
 .message {
+  margin-top: 3em;
   color: #f46e65;
   padding: 0.5em 2em;
   border:1px solid white;
@@ -60,7 +80,7 @@ html {
   display: block;
   text-decoration: none;
   color: white;
-  padding: 1.5em 0;
+  padding: 1.5em 1em;
   transition: transform 0.3s, font-size 0.1s;
 }
 .sitemap a:hover {
@@ -83,4 +103,14 @@ html {
   font-weight: normal;
   font-size: 0.7em;
   opacity: 0.6;
+  line-height: 2em;
+}
+.address .email::after {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  content: "oi.nezneb@troppus"
+}
+
+.address a:not(:hover) {
+  text-decoration: none;
 }
