@@ -12,15 +12,13 @@ spec:
       labels:
         app: default-http-backend
     spec:
-      imagePullSecrets:
-        - name: gitlab-registry-secret
       containers:
         - name: default-http-backend
-          image: registry.benzen.io/services/default-http-backend:latest
+          image: gcr.io/benzen-179605/default-http-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
               name: http
           env:
           - name: APP_VERSION
-            value: "VER_1"
+            value: "VER_3"

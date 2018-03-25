@@ -7,6 +7,6 @@ NEW=$(($OLD + 1))
 echo "============================="
 echo "Start to deploy VER_$NEW"
 eval "sed -i '' -e 's/VER_$OLD/VER_$NEW/' deploy.yaml"
-docker build ../ -t registry.benzen.io/services/default-http-backend && docker push registry.benzen.io/services/default-http-backend && kubectl apply -f deploy.yaml
+docker build ../ -t gcr.io/benzen-179605/default-http-backend && gcloud docker -- push gcr.io/benzen-179605/default-http-backend && kubectl apply -f deploy.yaml
 
 popd > /dev/null
