@@ -21,4 +21,4 @@ spec:
               name: http
           env:
           - name: APP_VERSION
-            value: "VER_3"
+            value: "VER_4"
